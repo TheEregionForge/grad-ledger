@@ -1,6 +1,6 @@
 # GradLedger
 
-![Version](https://img.shields.io/badge/version-0.5.0-2563eb)
+![Version](https://img.shields.io/badge/version-0.5.1-2563eb)
 ![Chrome](https://img.shields.io/badge/Chrome-extension-34a853)
 ![TypeScript](https://img.shields.io/badge/built%20with-TypeScript-3178c6)
 ![Local first](https://img.shields.io/badge/data-local--first-7c3aed)
@@ -29,7 +29,7 @@ The extension uses deterministic rules and page structure. It does not send page
 <a id="install-student-release"></a>
 ## 📦 Install from the student release
 
-1. Download `gradledger-0.5.0.zip` from the GitHub Release.
+1. Download `gradledger-0.5.1.zip` from the GitHub Release.
 2. Extract the ZIP file to a normal folder. Keep that folder in place; Chrome loads the extension from it.
 3. Open `chrome://extensions` in Chrome.
 4. Turn on **Developer mode** in the top-right corner.
@@ -63,6 +63,8 @@ Saved reports stay in Chrome’s local extension storage. Use the Reports view t
 - Captures same-site pages during an active session and merges new evidence into the existing record.
 - Keeps evidence snippets and confidence scores so uncertain fields can be checked.
 - Saves data locally and exports student-friendly CSV reports.
+- Automatically checks for updates released on Github repository
+
 
 <a id="limitations"></a>
 ## 🧩 Limitations
@@ -90,13 +92,5 @@ npm install
 npm test
 npm run build
 ```
-
-The production extension is generated in `dist/`. To create the student ZIP on Windows after a successful build:
-
-```powershell
-Compress-Archive -Path .\dist\* -DestinationPath .\gradledger-0.5.0.zip -Force
-```
-
-Then upload `gradledger-0.5.0.zip` to the GitHub Release. Students should extract it before using **Load unpacked**.
 
 The main public files are the source code, tests, package files, README guides, release notes, and [LICENSE](LICENSE).
