@@ -9,7 +9,7 @@
 
 Persian guide: [README.fa.md](README.fa.md)
 
-## Contents
+## 🧭 Contents
 
 - [What GradLedger does](#what-gradledger-does)
 - [Install from the student release](#install-from-the-student-release)
@@ -19,13 +19,13 @@ Persian guide: [README.fa.md](README.fa.md)
 - [Privacy and cautions](#privacy-and-cautions)
 - [For developers](#for-developers)
 
-## What GradLedger does
+## 🎓 What GradLedger does
 
 GradLedger turns information spread across academic websites into a structured record that you can review and save. It is designed for students comparing supervisors, labs, and programs.
 
 The extension uses deterministic rules and page structure. It does not send pages to an AI service or require an account.
 
-## Install from the student release
+## 📦 Install from the student release
 
 1. Download `gradledger-0.5.0.zip` from the GitHub Release.
 2. Extract the ZIP file to a normal folder. Keep that folder in place; Chrome loads the extension from it.
@@ -37,7 +37,7 @@ The extension uses deterministic rules and page structure. It does not send page
 
 The ZIP is not installed by double-clicking. Chrome needs the extracted folder through **Load unpacked**.
 
-## Quick start
+## 🚀 Quick start
 
 1. Open a professor, lab, or graduate-program webpage.
 2. Click the GradLedger toolbar icon.
@@ -50,7 +50,7 @@ The ZIP is not installed by double-clicking. Chrome needs the extracted folder t
 
 Saved reports stay in Chrome’s local extension storage. Use the Reports view to download all saved records together as one CSV file.
 
-## Current capabilities
+## ✨ Current capabilities
 
 - Classifies pages as professor, graduate program, lab, scholarship, faculty directory, or unknown.
 - Extracts names, academic titles, universities, countries, departments, emails, research interests, contact instructions, subject-line hints, and open-position evidence.
@@ -60,7 +60,7 @@ Saved reports stay in Chrome’s local extension storage. Use the Reports view t
 - Keeps evidence snippets and confidence scores so uncertain fields can be checked.
 - Saves data locally and exports student-friendly CSV reports.
 
-## Limitations
+## 🧩 Limitations
 
 - Extraction is rule-based, so unusual wording, image-only text, heavy JavaScript applications, PDFs, login pages, and blocked pages may produce incomplete results.
 - A page that merely lists current students is not treated as proof of an open position. When the site gives no explicit recruiting statement, the status may remain unknown.
@@ -68,13 +68,13 @@ Saved reports stay in Chrome’s local extension storage. Use the Reports view t
 - Capture is limited to the same site pattern as the session’s starting page. External links are not collected.
 - The extension does not submit applications, send emails, or replace the university’s official admissions information.
 
-## Privacy and cautions
+## 🔒 Privacy and cautions
 
 GradLedger is local-first, but Chrome permissions still matter. Grant access only when you want the extension to read a site. Review extracted email addresses, deadlines, funding claims, and open-position status before using them.
 
 Do not treat an extracted record as an admissions decision. Always confirm requirements, deadlines, funding, and supervisor availability on the official university page. Avoid using the extension on private, authenticated, or sensitive pages.
 
-## For developers
+## 🛠️ For developers
 
 Requirements: Node.js and npm.
 
@@ -92,4 +92,4 @@ Compress-Archive -Path .\dist\* -DestinationPath .\gradledger-0.5.0.zip -Force
 
 Then upload `gradledger-0.5.0.zip` to the GitHub Release. Students should extract it before using **Load unpacked**.
 
-For implementation notes, see [PHASE1_EXTENSION_GUIDE.md](PHASE1_EXTENSION_GUIDE.md), [PHASE2_RULE_PACKS.md](PHASE2_RULE_PACKS.md), and [plan.md](plan.md).
+The main public files are the source code, tests, package files, README guides, release notes, and [LICENSE](LICENSE).
