@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+
+# Build output and release packages
+dist/
+build/
+out/
+*.zip
+*.crx
+*.pem
+
+# Test and coverage output
+coverage/
+playwright-report/
+test-results/
+.nyc_output/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Local Codex and agent workspace state
+.codex/
+.agents/
+
+# Internal planning and phase notes
+plan.md
+PHASE*.md
+*phase*.md
+*progress*.md
+*handoff*.md
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# TypeScript/Vite caches
+.vite/
+*.tsbuildinfo
+
