@@ -1,5 +1,6 @@
 import type { ExtractionResult, PageSnapshot, SavedRecord } from "./models";
 import type { CaptureSession, SiteProfile } from "../extraction/site-context";
+import type { GitHubReleaseUpdate } from "../updates/github-release";
 
 export type ExtensionMessage =
   | { type: "ANALYZE_CURRENT_PAGE"; tabId: number }
@@ -12,6 +13,7 @@ export type ExtensionMessage =
   | { type: "GET_CAPTURE_SESSION" }
   | { type: "START_CAPTURE_SESSION"; tabId: number }
   | { type: "STOP_CAPTURE_SESSION" }
+  | { type: "CHECK_FOR_UPDATE" }
   | { type: "COLLECT_PAGE_SNAPSHOT" }
   | { type: "ANALYSIS_TARGET_CHANGED"; tabId: number }
   | { type: "CAPTURE_SESSION_UPDATED"; session: CaptureSession; capturedUrl?: string; title?: string };
@@ -45,6 +47,7 @@ export function isExtensionMessage(message: unknown): message is ExtensionMessag
     case "GET_ACTIVE_TAB_CONTEXT":
     case "GET_CAPTURE_SESSION":
     case "STOP_CAPTURE_SESSION":
+    case "CHECK_FOR_UPDATE":
     case "COLLECT_PAGE_SNAPSHOT":
       return true;
     case "GET_SITE_PROFILE":
@@ -59,6 +62,8 @@ export function isExtensionMessage(message: unknown): message is ExtensionMessag
       return false;
   }
 }
+
+export type UpdateCheckResponse = GitHubReleaseUpdate | null;
 
 export function isValidSnapshot(value: unknown): value is PageSnapshot {
   if (!isObject(value)) {

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "minimum_chrome_version": "116",
   "name": "GradLedger",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Save professors, graduate programs, requirements, and deadlines while browsing.",
   "permissions": [
     "activeTab",

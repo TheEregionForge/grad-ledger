@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ExtractionResult, PageType, ResolvedField } from "../shared/models";
 import type { MessageResponse } from "../shared/messages";
+import type { UpdateCheckResponse } from "../shared/messages";
 import {
   exportCommunityRulePacks,
   importCommunityRulePacks,
@@ -638,6 +639,7 @@ export default function App() {
   const [notes, setNotes] = useState("");
   const [permissionRequest, setPermissionRequest] = useState<SitePermissionRequest | null>(null);
   const [toast, setToast] = useState("");
+  const [availableUpdate, setAvailableUpdate] = useState<UpdateCheckResponse>(null);
   const toastTimerRef = useRef<number | null>(null);
 
   function showToast(message: string): void {
@@ -773,6 +775,9 @@ export default function App() {
     refreshCaptureReports().catch(() => setCaptureReports([]));
     refreshRulePacks().catch(() => setRulePacks([]));
     refreshCaptureSession().catch(() => setCaptureSession(null));
+    sendMessage<UpdateCheckResponse>({ type: "CHECK_FOR_UPDATE" })
+      .then(setAvailableUpdate)
+      .catch(() => setAvailableUpdate(null));
 
     const listener = (message: unknown) => {
       if (typeof message !== "object" || message === null) {
@@ -819,6 +824,18 @@ export default function App() {
         <button className={activeTab === "rules" ? "active" : ""} onClick={() => setActiveTab("rules")}>Rules</button>
         <button className={activeTab === "details" ? "active" : ""} onClick={() => setActiveTab("details")}>Details</button>
       </nav>
+
+      {availableUpdate && (
+        <div className="update-banner" role="status">
+          <div>
+            <strong>Update available: {availableUpdate.version}</strong>
+            <p>Download the latest GradLedger release from GitHub.</p>
+          </div>
+          <button onClick={() => window.open(availableUpdate.releaseUrl, "_blank", "noopener,noreferrer")}>
+            Open GitHub
+          </button>
+        </div>
+      )}
 
       {state === "loading" && <div className="banner">Collecting normalized page snapshot...</div>}
       {(state === "error" || state === "unsupported") && <div className="banner error">{error}</div>}

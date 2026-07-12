@@ -122,6 +122,23 @@ main {
   color: #8b1e12;
 }
 
+.update-banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 12px;
+  padding: 10px 12px;
+  border: 1px solid #c5d5ff;
+  border-radius: 6px;
+  background: #e9f0ff;
+}
+
+.update-banner p {
+  margin: 3px 0 0;
+  color: #4b5b76;
+}
+
 .toast {
   position: sticky;
   top: 0;

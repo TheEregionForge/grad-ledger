@@ -14,6 +14,7 @@ import {
 import { listCommunityRulePacks } from "../storage/community-rules";
 import { getSiteProfileForUrl, mergeResultIntoSiteProfile } from "../storage/site-profiles";
 import { deriveSiteKey, type CaptureSession } from "../extraction/site-context";
+import { checkForGitHubUpdate } from "../updates/github-release";
 
 const repository = new ChromeStorageRepository();
 const analyzeContextMenuId = "gradpath-analyze-page";
@@ -267,6 +268,12 @@ chrome.runtime.onMessage.addListener((message: unknown, _sender, sendResponse: (
       if (message.type === "STOP_CAPTURE_SESSION") {
         const session = await stopCaptureSession();
         sendResponse({ ok: true, data: session });
+        return;
+      }
+
+      if (message.type === "CHECK_FOR_UPDATE") {
+        const update = await checkForGitHubUpdate();
+        sendResponse({ ok: true, data: update });
         return;
       }
 
